@@ -30,4 +30,7 @@ kd=0.01
 solution = solve_ivp(dmdt,t_span=t,y0=[1],args=[[a,f,m0,Q,ka,kd]],max_step=0.1)
 print(solution.y)
 pl.plot(solution.t,solution.y[0,:])
+pl.grid()
+pl.xlabel('time (s)')
+pl.ylabel('concentration (mol/m^3)')
 pl.show()

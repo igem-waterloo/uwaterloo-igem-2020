@@ -13,24 +13,31 @@ def dmdt(t,m,params):
     ka=params[4] # forward reaction rate
     kd=params[5] # backwards reaction rate
 
-    return -(a/f)*ka*Q*m-ka*m*(m-m0)+kd*(m-m0)
+    return -(a/f)*ka*Q*m+ka*m*(m0-m)+kd*(m0-m)
 
 # timespan of solution
-t=[0,100] 
+t=[0,86400/24] 
 
 # parameters
-a=0.5 
-f=0.8
-m0 = 1 
-Q=0.8
-ka=0.3
-kd=0.01
+a=3/(3e-3)
+f=0.31
+m0 = 0.015737*30
+Q= (f/a)*0.015737*30
+ka=0.015
+KD=(10**(-13.7))
+kd=ka*KD
 
+fig,ax=pl.subplots()
+for c in np.arange(-0.3,0.3, step=0.05):
 # solving the IVP
-solution = solve_ivp(dmdt,t_span=t,y0=[1],args=[[a,f,m0,Q,ka,kd]],max_step=0.1)
-print(solution.y)
-pl.plot(solution.t,solution.y[0,:])
-pl.grid()
-pl.xlabel('time (s)')
-pl.ylabel('concentration (mol/m^3)')
+    solution = solve_ivp(dmdt,t_span=t,y0=[m0],args=[[a,f,m0,Q+c*(f/a),ka,kd]],max_step=100)
+    if abs(c)<=1e-10:
+        ax.plot(solution.t,solution.y[0,:],color=(0,0,0),lw=2,label='[CupC] = '+'%4f'%(Q+c*(f/a))+' mol/m^2')
+    else:
+        ax.plot(solution.t,solution.y[0,:],lw=1,color=(0,0,0),ls='dotted',label='[CupC] = '+'%4f'%(Q+c*(f/a))+' mol/m^2')
+ax.set_title('Concentration of copper versus time for various binding protein concentrations')
+ax.grid()
+ax.legend()
+ax.set_xlabel(r'time $(s)$')
+ax.set_ylabel(r'concentration $(mol/m^3)$')
 pl.show()

@@ -11,11 +11,13 @@ This setup does not incorporate quantum effects directly, we use the Charmm36 pa
 at https://www.charmm.org/charmm/resources/charmm-force-fields/ and http://www.charmm-gui.org/?doc=input/nanomaterial
 which incorporate parameters found in https://pubs.acs.org/doi/full/10.1021/jp505875v and
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4306492/ and https://pubs.acs.org/doi/pdf/10.1021/ct400146w.
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4192665/
 These parameters are calculated by the Lennard Jones 12-6-4 method.
 
 # Todo List
 
 MAYBE TODO: Use Gromacs QM/MM package which can be found at [1] http://wwwuser.gwdg.de/~ggroenh/qmmm.html.
+http://manual.gromacs.org/documentation/2019-beta2/reference-manual/special/qmmm.html
 This package hooks Gromacs up to Gaussian, which simulates the quantum mechanics of a portion
 of the system. 
 1. Select a number of residues which make up the active site where we want to simulate quantum effects.

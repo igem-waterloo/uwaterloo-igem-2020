@@ -117,3 +117,4 @@ Using 32 OpenMP threads
 
 starting mdrun 'COPC in water'
 5000000 steps,  10000.0 ps.
+slurmstepd: error: *** JOB 38750567 ON gra1079 CANCELLED AT 2020-09-27T01:50:11 DUE TO TIME LIMIT ***

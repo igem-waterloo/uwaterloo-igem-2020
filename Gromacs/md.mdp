@@ -3,6 +3,14 @@ title                   = Protein-ligand complex MD simulation
 integrator              = md        ; leap-frog integrator
 nsteps                  = 5000000   ; 2 * 5000000 = 10000 ps (10 ns)
 dt                      = 0.002     ; 2 fs
+; Quantum Mechanics
+; http://manual.gromacs.org/documentation/2019-beta2/reference-manual/special/qmmm.html#future-developments
+QMMM                    = yes
+QMMM-grps               = Active_Site_CU2P
+QMMMscheme              = normal
+QMmethod                = B3LYP
+QMbasis                 = 6-31G*
+QMcharge                = 2
 ; Output control
 nstenergy               = 5000      ; save energies every 10.0 ps
 nstlog                  = 5000      ; update log file every 10.0 ps

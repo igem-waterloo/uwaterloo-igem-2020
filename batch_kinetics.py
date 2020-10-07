@@ -44,7 +44,7 @@ kd = ka*KD
 # for c in np.arange(-0.3,0.3, step=0.05):
 # # solving the IVP
 
-solution = solve_ivp(dmdt,t_span=t,y0=[m0],args=[[a,f,m0,Q,ka,kd]],max_step=0.001)
+solution = solve_ivp(dmdt, t_span=t, y0=[m0], args=[[a, f, m0, Q, ka, kd]], max_step=0.001)
 
 # ax.plot(solution.t,solution.y[0,:],label="[Cu] remaining, [CopC]=0.35e-6")
 # ax.set_title('Concentration of copper versus time for various binding protein concentrations')

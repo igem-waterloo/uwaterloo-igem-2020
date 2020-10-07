@@ -28,7 +28,7 @@ t=[0,5]
 a=(33.4 * 1.5e6)/(1-0.31) 
 
 # specific area = how much surface area per volume
-# SA_density * mass_density / volume = m^2 / g * g/m^3 * m^3/m^3 = 1/m
+# [SA_density * mass_density / volume] = m^2 / g * g/m^3 * m^3/m^3 = 1/m
 
 f=0.31
 m0 = 0.015*30
@@ -38,8 +38,6 @@ KD=(10**(-13.7))
 kd=ka*KD
 
 # fig,ax=pl.subplots()
-# for c in np.arange(-0.3,0.3, step=0.05):
-# # solving the IVP
 
 solution = solve_ivp(dmdt,t_span=t,y0=[m0],args=[[a,f,m0,Q,ka,kd]],max_step=0.001)
 

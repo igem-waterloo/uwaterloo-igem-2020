@@ -1,3 +1,7 @@
+# IMPORTANT: If you want to run any Fenics simulation in parallel to speed it up, Fenics plays really well with MPI
+# Install mpich for Ubuntu (and the python bindings if they don't install automatically) and run the following command:
+# mpirun -n #t python3 demo.py
+# where #t is the number of threads you want and demo.py is your file.
 from fenics import *
 
 T = 10            # final time

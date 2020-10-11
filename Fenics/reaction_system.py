@@ -15,13 +15,13 @@ mesh = RectangleMesh(Point(0, 0), Point(1, 1), 20, 20)
 P1 = FiniteElement('P', triangle, 1)
 element = MixedElement([P1, P1])
 V = FunctionSpace(mesh, element)
-W=FunctionSpace(mesh, P1)
+W = FunctionSpace(mesh, P1)
 
 # Define test functions
 v_1, v_2 = TestFunctions(V)
 
 # Define functions for velocity and concentrations
-w = Constant((0, 0.1))
+w = Constant((0, 0.1))  # flow velocity into the reactor
 u = Function(V)  # metal concentration
 u_n = Function(V)  # concentration at timestep n
 
